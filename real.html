@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Shield — Citizen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+
+<body class="bg-neutral-100 text-gray-900 text-lg">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-black text-white">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Left -->
+      <div class="flex items-center gap-6">
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded bg-white"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/25c9c14a-0abb-4097-9b75-3c4ab5ae4b8a.png"> </div>
+          <span class="hidden sm:block font-semibold tracking-wide text-xl">Project Shield</span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-6 text-base">
+          <li><a class="hover:text-blue-400" href="#">Home</a></li>
+          <li><a class="hover:text-blue-400" href="#">Contact Us</a></li>
+          <li><a class="hover:text-blue-400" href="#">About Us</a></li>
+          <li class="relative">
+            <button id="suggestBtn" class="hover:text-blue-400">Suggestion ▾</button>
+            <div id="suggestMenu" class="hidden absolute mt-2 w-52 bg-white text-black rounded shadow">
+              <a class="block px-3 py-2 hover:bg-gray-100" href="#">Suggestion Box</a>
+              <a class="block px-3 py-2 hover:bg-gray-100" href="#">Volunteer</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right -->
+      <div class="flex items-center gap-5">
+        <div class="hidden sm:flex items-center gap-3 text-base">
+          <a href="#" class="hover:text-blue-400">Citizen</a>
+          <span class="opacity-50">|</span>
+          <a href="#" class="hover:text-blue-400">Authority</a>
+        </div>
+
+ <!-- Profile -->
+<div class="relative">
+  <button id="profileBtn" class="w-10 h-10 rounded-full ring-2 ring-white overflow-hidden">
+    <img 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOxLspZzfvP8zUZjp3p_uiI4uKT3haXiXrIw&s" 
+      alt="Profile" 
+      class="w-full h-full object-cover"
+    >
+  </button>
+  <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white text-black rounded shadow"></div>
+</div>
+
+
+        <!-- mobile menu -->
+        <button id="openSidebar" class="md:hidden px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-sm">
+          ☰
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN GRID -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="grid grid-cols-1 md:grid-cols-[15rem_1fr] lg:grid-cols-[15rem_1fr_20rem] gap-4">
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="bg-white md:sticky md:top-20 border rounded-lg p-3 md:block hidden">
+        <nav class="text-base space-y-1">
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">File FIR</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Rural Complaint</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Suggestion to Government</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Complaint Against Govt</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Good Deeds • Aura Points</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Women Safety</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100" href="#">Mental Health Helpline</a>
+        </nav>
+      </aside>
+
+      <!-- CENTER FEED -->
+      <main class="min-h-[60vh] bg-white border rounded-lg p-6 space-y-6">
+        <h2 class="text-2xl font-bold">Citizen Feed</h2>
+
+        <!-- Post 1 -->
+        <div class="border rounded-xl p-4 space-y-3 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center gap-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOxLspZzfvP8zUZjp3p_uiI4uKT3haXiXrIw&s" 
+                 class="w-12 h-12 rounded-full ring-2 ring-offset-2 ring-blue-500 shadow-md object-cover hover:scale-105 transition-transform duration-200" 
+                 alt="User">
+            <div>
+              <p class="font-semibold">Walter White </p>
+              <p class="text-sm text-gray-500">Change doesn’t knock on your door — YOU have to be the one who knocks. 🚪💥
+Today me & my friends cleaned our area, tomorrow it could be the whole city. Let’s make it happen! <b>#ProjectShield #CleanIndia</b></p>
+            </div>
+          </div>
+
+          <img src="  download.jpeg"     alt="Good deed" 
+               class="w-full max-h-[450px] object-cover rounded-xl border shadow-lg hover:shadow-xl transition-shadow duration-300">
+
+          <div class="flex gap-6 mt-2">
+            <button onclick="likePost(this)" class="like-btn text-blue-600 hover:underline">
+              👍 Like (<span>0</span>)
+            </button>
+            <button onclick="commentPost(this)" class="text-green-600 hover:underline">
+              💬 Comment
+            </button>
+          </div>
+          <div class="comments text-sm text-gray-700 mt-2 space-y-3"></div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="border rounded-xl p-4 space-y-3 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center gap-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOxLspZzfvP8zUZjp3p_uiI4uKT3haXiXrIw&s" 
+                 class="w-12 h-12 rounded-full ring-2 ring-offset-2 ring-pink-500 shadow-md object-cover hover:scale-105 transition-transform duration-200" 
+                 alt="User">
+            <div>
+              <p class="font-semibold">Walter White</p>
+              <p class="text-sm text-gray-500">I am not asking for charity. I am not begging.
+What I’m doing… is building. Brick by brick, meal by meal.
+Today I put food in the hands of those who had none. Tomorrow, maybe it’s the whole city.
+This is not kindness. This is inevitability.<b>
+#FoodDrive #CitizenPower</b></p>
+            </div>
+          </div>
+
+          <img src=" download (1).jpeg"     alt="Food Donation" 
+               class="w-full max-h-[450px] object-cover rounded-xl border shadow-lg hover:shadow-xl transition-shadow duration-300">
+
+          <div class="flex gap-6 mt-2">
+            <button onclick="likePost(this)" class="like-btn text-blue-600 hover:underline">
+              👍 Like (<span>0</span>)
+            </button>
+            <button onclick="commentPost(this)" class="text-green-600 hover:underline">
+              💬 Comment
+            </button>
+          </div>
+          <div class="comments text-sm text-gray-700 mt-2 space-y-3"></div>
+        </div>
+      </main>
+
+
+
+
+
+      
+      <!-- RIGHT PANEL -->
+      <aside class="hidden lg:flex flex-col gap-4">
+        <section class="bg-white border rounded-lg p-4">
+          <h3 class="font-semibold mb-2">Latest News</h3>
+          <ul class="list-disc list-inside text-base space-y-2">
+            <li><a class="text-blue-600 hover:underline" href="https://timesofindia.indiatimes.com/city/chandigarh" target="_blank">Chandigarh News - TOI</a></li>
+            <li><a class="text-blue-600 hover:underline" href="https://www.tribuneindia.com/news/chandigarh" target="_blank">Tribune Chandigarh</a></li>
+            <li><a class="text-blue-600 hover:underline" href="https://indianexpress.com/section/cities/chandigarh/" target="_blank">Indian Express Chandigarh</a></li>
+          </ul>
+        </section>
+
+        <section class="bg-gray-100 border rounded-lg p-4">
+          <h3 class="font-semibold mb-2">Crime Heatmap</h3>
+          <img src=" map.png" >        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- CHATBOT -->
+  <button class="fixed bottom-5 right-5 w-16 h-16 rounded-full bg-blue-600 text-white shadow-lg text-3xl animate-bounce">💬</button>
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+    <div class="bg-white w-[28rem] rounded-lg p-8 shadow-2xl">
+      <h2 class="text-2xl font-bold mb-6 text-center">Citizen Login</h2>
+      <div class="space-y-4">
+       <input id="loginEmail" type="email" placeholder="Enter Gmail" class="w-full border rounded px-4 py-3 text-lg">
+<input id="loginPassword" type="password" placeholder="Password" class="w-full border rounded px-4 py-3 text-lg">
+
+        <button id="loginSubmit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white rounded py-3 text-lg font-semibold">Login</button>
+        <button data-close="loginModal" 
+                class="w-full bg-gray-200 hover:bg-gray-300 rounded py-3 text-lg">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div id="signupModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center overflow-auto">
+    <div class="bg-white w-[34rem] rounded-lg p-8 shadow-2xl">
+      <h2 class="text-2xl font-bold mb-6 text-center">Citizen Sign Up</h2>
+      <form id="signupForm" class="space-y-4">
+        <input type="text" placeholder="Full Name" 
+               class="w-full border rounded px-4 py-3 text-lg">
+        <input type="text" placeholder="Aadhaar Number" 
+               class="w-full border rounded px-4 py-3 text-lg">
+        <input type="text" placeholder="Mobile Number" 
+               class="w-full border rounded px-4 py-3 text-lg">
+       <input id="signupEmail" type="email" placeholder="Gmail" class="w-full border rounded px-4 py-3 text-lg">
+<input id="signupPassword" type="password" placeholder="Password" class="w-full border rounded px-4 py-3 text-lg">
+
+        <input type="number" placeholder="Age" 
+               class="w-full border rounded px-4 py-3 text-lg">
+        
+        <!-- Picture Upload -->
+        <div class="flex items-center gap-3">
+          <label class="font-medium w-32">Profile Picture:</label>
+          <input type="file" accept="image/*" 
+                 class="flex-1 border rounded px-3 py-2 text-lg">
+        </div>
+
+        <input type="password" placeholder="Password" 
+               class="w-full border rounded px-4 py-3 text-lg">
+        
+        <button id="signupSubmit" 
+                class="w-full bg-green-600 hover:bg-green-700 text-white rounded py-3 text-lg font-semibold">Create Account</button>
+        <button data-close="signupModal" 
+                type="button"
+                class="w-full bg-gray-200 hover:bg-gray-300 rounded py-3 text-lg">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- Firebase App -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<!-- Toastify -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+<script type="module">
+  // Import Firebase App and Auth modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+  // Firebase configuration (your project)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBM0Ogsr9EPb_f4GHGbF8mkYnQezca4Fds",
+    authDomain: "project-shield-8789b.firebaseapp.com",
+    projectId: "project-shield-8789b",
+    storageBucket: "project-shield-8789b.firebasestorage.app",
+    messagingSenderId: "253823211312",
+    appId: "1:253823211312:web:a89329cebf64b750685af5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Signup logic
+  document.getElementById('signupSubmit').addEventListener('click', () => {
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        toast(`Account created for ${user.email} 🎉`);
+        localStorage.setItem('loggedIn','true');
+        setLoggedInUI(true);
+        document.getElementById('signupModal').classList.add('hidden');
+      })
+      .catch(error => toast(error.message, "red"));
+  });
+
+  // Login logic
+  document.getElementById('loginSubmit').addEventListener('click', () => {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        toast(`Logged in as ${user.email} ✅`);
+        localStorage.setItem('loggedIn','true');
+        setLoggedInUI(true);
+        document.getElementById('loginModal').classList.add('hidden');
+      })
+      .catch(error => toast(error.message, "red"));
+  });
+</script>
+
+<script  src="script.js"></script>
+</body>
+</html>
